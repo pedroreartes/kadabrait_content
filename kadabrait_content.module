@@ -44,7 +44,7 @@ function kadabrait_content_install() {
       'status' => TRUE,
       'settings' => [
         'id' => 'user_contents_block',
-        'label' => 'User Contents',
+        'label' => t('My Last Contents'),
         'label_display' => 'visible',
         'provider' => 'kadabrait_content',
       ],
