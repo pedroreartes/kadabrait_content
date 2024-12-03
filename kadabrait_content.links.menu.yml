@@ -4,3 +4,8 @@ kadabrait_content.user_contents:
   route_name: kadabrait_content.user_contents
   menu_name: main
   weight: 5
+  options:
+    attributes:
+      class: ['kadabrait-content-link']
+  requirements:
+    _permission: 'access user contents'
