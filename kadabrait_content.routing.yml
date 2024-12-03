@@ -1,0 +1,8 @@
+kadabrait_content.user_contents:
+  path: '/user-contents'
+  defaults:
+    _controller: '\Drupal\kadabrait_content\Controller\UserContentsController::content'
+    _title: 'My Contents'
+  requirements:
+    _permission: 'access user contents'
+    _user_is_logged_in: 'TRUE'

@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Kadabra IT Content module.
+ */
+
+use Drupal\block\Entity\Block;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function kadabrait_content_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.kadabrait_content':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Displays user-specific content listings.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_install().
+ */
+function kadabrait_content_install() {
+  // Create the block.
+  $block = Block::create([
+    'id' => 'user_contents_block',
+    'theme' => \Drupal::config('system.theme')->get('default'),
+    'plugin' => 'user_contents_block',
+    'region' => 'sidebar_first',
+    'settings' => [
+      'id' => 'user_contents_block',
+      'label' => 'User Contents',
+      'label_display' => 'visible',
+    ],
+    'visibility' => [
+      'request_path' => [
+        'id' => 'request_path',
+        'negate' => FALSE,
+        'pages' => '<front>',
+      ],
+    ],
+  ]);
+  $block->save();
+}
