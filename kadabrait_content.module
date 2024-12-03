@@ -40,7 +40,8 @@ function kadabrait_content_install() {
       'id' => 'user_contents_block',
       'theme' => $default_theme,
       'plugin' => 'user_contents_block',
-      'region' => 'sidebar_first',
+      'region' => 'sidebar',
+      'status' => TRUE,
       'settings' => [
         'id' => 'user_contents_block',
         'label' => 'User Contents',
