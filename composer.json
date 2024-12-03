@@ -1,7 +1,13 @@
 {
     "name": "custom/kadabrait_content",
-    "description": "Kadabra IT Content module for Drupal",
-    "type": "drupal-module",
+    "description": "Drupal module for displaying user-specific content",
+    "type": "drupal-custom-module",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.1",
+        "drupal/core": "^9 || ^10 || ^11"
+    },
     "require-dev": {
         "drupal/coder": "^8.3",
         "squizlabs/php_codesniffer": "^3.7"

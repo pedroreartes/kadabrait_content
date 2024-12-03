@@ -6,40 +6,51 @@ This Drupal module provides functionality to display user-specific content:
 
 ## Prerequisites
 
-- Drupal 9.x or 10.x installed and running
+- Drupal 9.x, 10.x, or 11.x installed and running
 - Access to the web server hosting Drupal
 - SSH access to the server (recommended)
 - Composer installed on the server
 
 ## Installation Steps
 
-### 1. Copy the Module
+### 1. Add Custom Repository (Method A - Recommended)
+
+Add this repository to your project's composer.json:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:pedroreartes/kadabrait_content.git"
+        }
+    ]
+}
+```
+
+Then install the module:
+
+```bash
+composer require custom/kadabrait_content:dev-main
+```
+
+### 2. Manual Installation (Method B)
 
 ```bash
 # Navigate to Drupal's custom modules directory
 cd /path/to/drupal/web/modules/custom
 
-# Clone or copy the module
-git clone [REPOSITORY_URL] kadabrait_content
-# Or copy the module files directly to the kadabrait_content folder
-```
+# Clone the repository
+git clone git@github.com:pedroreartes/kadabrait_content.git kadabrait_content
 
-### 2. Install Dependencies (If using Composer)
+# Navigate to the module directory
+cd kadabrait_content
 
-```bash
-# Navigate to Drupal root directory
-cd /path/to/drupal
-
-# Make sure the module is registered in composer.json
-composer require drupal/kadabrait_content:@dev
-
-# Update dependencies
+# Install module dependencies
 composer install
 ```
 
-### 3. Install the Module
-
-There are two ways to install the module:
+### 3. Enable the Module
 
 #### Option A: Using Drush (Recommended)
 ```bash
@@ -82,6 +93,11 @@ If you encounter issues during installation:
    - Go to Administration > Structure > Block layout (`/admin/structure/block`)
    - Verify that the "User Contents Block" is configured in the "Sidebar first" region
 
+4. Composer Issues:
+   - If you get "could not be found in any version" error, make sure you've properly added the repository to your composer.json
+   - Verify that the repository URL is correct
+   - Try running `composer clear-cache` and then retry the installation
+
 ### 6. Support
 
 If you encounter issues during installation, please:
@@ -95,3 +111,4 @@ If you encounter issues during installation, please:
 - Only authenticated users can view both the page and the block
 - The page will display the last 10 content items created by the user
 - The block will display the last 3 content items created by the user
+- Compatible with Drupal 9.x, 10.x, and 11.x
