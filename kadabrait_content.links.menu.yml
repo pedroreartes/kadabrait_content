@@ -1,0 +1,6 @@
+kadabrait_content.user_contents:
+  title: 'My Contents'
+  description: 'View your created content'
+  route_name: kadabrait_content.user_contents
+  menu_name: main
+  weight: 5
