@@ -7,6 +7,7 @@
 
 use Drupal\block\Entity\Block;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\user\RoleInterface;
 
 /**
  * Implements hook_help().
@@ -25,6 +26,9 @@ function kadabrait_content_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_install().
  */
 function kadabrait_content_install() {
+  // Grant permission to authenticated users.
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access user contents']);
+
   // Create the block.
   $block = Block::create([
     'id' => 'user_contents_block',

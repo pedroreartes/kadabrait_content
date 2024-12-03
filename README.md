@@ -77,6 +77,14 @@ drush cr
 2. Verify that you can access the contents page at `/user-contents`
 3. Verify that the block appears on the homepage (only visible to logged-in users)
 
+Note: The module automatically grants the necessary permissions to authenticated users during installation. If you still can't access the content:
+
+1. Go to Administration > People > Permissions (`/admin/people/permissions`)
+2. Look for the "Kadabra IT Content" section
+3. Ensure that "Access user contents" is checked for "Authenticated user"
+4. Save the permissions
+5. Clear the cache (Administration > Configuration > Development > Performance)
+
 ### 5. Troubleshooting
 
 If you encounter issues during installation:
